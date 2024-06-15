@@ -2,8 +2,6 @@
 #include "../bean/ListNode.h"
 #include <set>
 
-// namespace std;
-
 /**
  * 总结：
  * 1、第一个C++程序
@@ -12,7 +10,7 @@
  * 4、快慢指针解法，快指针在第二个元素位置
  * -- 可以优化，快指针在第一个元素位置，while循环判断快指针是否到链表尾部了
  */
-int main(){
+int main141(){
 
     printf("LeetCode");
     

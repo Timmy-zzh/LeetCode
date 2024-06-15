@@ -9,10 +9,11 @@ class ListNode
 public:
     int val;
     ListNode *next;
-    
-    ListNode(int x):val(x),next(nullptr){
 
+    ListNode(int x) : val(x), next(nullptr)
+    {
     }
+
     ~ListNode(){
 
     };
@@ -29,4 +30,3 @@ public:
     //     this->next = &next;
     // }
 };
-
