@@ -1,11 +1,11 @@
 #include <iostream>
 #include "ListNode.h"
 
-// namespace std
+using namespace  std;
 
 void printLinkedList(ListNode *head)
 {
-    std::cout << "linked list:";
+    cout << "linked list:";
     while (head != nullptr)
     {
         std::cout << head->val << ",";
