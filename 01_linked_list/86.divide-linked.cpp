@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../bean/Print.h"
+#include "../utils/Print.h"
 
 ListNode *partition(ListNode *head, int x);
 

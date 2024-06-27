@@ -1,6 +1,6 @@
 #include <iostream>
 // #include "../bean/ListNode.h"
-#include "../bean/Print.h"
+#include "../utils/Print.h"
 
 // 先声明
 ListNode *reverseList(ListNode *head);

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../bean/Print.h"
+#include "../utils/Print.h"
 
 ListNode *retateRight(ListNode *head, int k);
 
