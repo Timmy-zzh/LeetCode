@@ -19,6 +19,7 @@ int main(int argc, char const *argv[])
  * - 双指针解法，左边指针查找相等的val元素，右边指针查找不相等的元素，进行交换
  * - 边界问题处理，left指针大于right指针，说明left指针登录val元素，直接返回left下标，[0,left-1]一共left个数元素是有效的
  * -- 都是在while里面解决的，不会跳出while循环外返回的
+ * 4、删除值相等的元素
  */
 int removeElement(vector<int> &nums, int val)
 {
