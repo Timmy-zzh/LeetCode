@@ -1,12 +1,11 @@
 #include <iostream>
-#include "..\bean\ListNode.h"
+#include "ListNode.h"
 #include <vector>
-
-using namespace std;
+#include <map>
 
 void printLinkedList(ListNode *head)
 {
-    cout << "linked list:";
+    std::cout << "linked list:";
     while (head != nullptr)
     {
         std::cout << head->val << ",";
@@ -15,13 +14,30 @@ void printLinkedList(ListNode *head)
     std::cout << std::endl;
 }
 
-void printArr(vector<int> vector)
+void printArr(std::vector<int> &vector)
 {
-    cout << "print vector: ";
+    std::cout << "print vector: ";
     int size = vector.size();
     for (size_t i = 0; i < size; i++)
     {
-        cout << vector[i] << ",";
+        std::cout << vector[i] << ",";
     }
-    cout << endl;
+    std::cout << std::endl;
+}
+
+void printMap(std::map<int, int> &map)
+{
+    std::cout << "print map: " << std::endl;
+    // 使用迭代器遍历
+    for (std::map<int, int>::iterator it = map.begin(); it != map.end(); it++)
+    {
+        std::cout << it->first << "-" << it->second << std::endl;
+    }
+
+    // int size = map.size();
+    // for (const auto &pair : map)
+    // {
+    //     std::cout << pair.first << "-" << pair.second << std::endl;
+    // }
+    // std::cout << std::endl;
 }

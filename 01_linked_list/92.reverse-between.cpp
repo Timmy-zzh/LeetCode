@@ -1,5 +1,5 @@
 #include <iostream>
-// #include "../bean/ListNode.h"
+#include "../utils/ListNode.h"
 #include "../utils/Print.h"
 
 // 先声明
