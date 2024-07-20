@@ -171,18 +171,25 @@ int canCompleteCircuit3(vector<int> &gas, vector<int> &cost)
     return -1;
 }
 
+/**
+ * 有卡壳，再重新写一遍
+ * - 沿着加油站，顺序往后移动，先判断能不能到达下一个加油站，不能则从下一个加油站重新开始出发
+ * - 如果从下一个加油站出发，加入的油比消耗的油要大，则继续往后移动，先加油，判断能否到达下一个加油站，能的话当前的油量减去消耗的
+ * - 如果不能，直接中断了，又的重新从下一个加油站开始出发，
+ * - 如果循环了一圈，又跑到前面加油站位置去了，那指定是不能绕一圈的，直接返回-1
+ */
 int canCompleteCircuit(vector<int> &gas, vector<int> &cost)
 {
     int count = gas.size();
+    int currGas = 0;
     int i = 0;
     while (i < count)
     {
-        int currGas = gas[i];
-        int j = i;
-        std::cout << "for i:" << i << " ,j:" << j << " ,currGas:" << currGas << std::endl;
-        if (currGas >= cost[j])
+        if (gas[i] >= cost[i])
         {
-
+            currGas = gas[i];
+            // while循环，让加油站不断往后移动，移动到最后一位再返回到第一位置，直到遇到开始出发的加油站位置（也就是i）
+            int j = i;
             while (currGas >= cost[j])
             {
                 currGas -= cost[j];
@@ -190,18 +197,19 @@ int canCompleteCircuit(vector<int> &gas, vector<int> &cost)
                 j = j % count;
                 currGas += gas[j];
 
-                std::cout << "while i:" << i << " ,j:" << j << " ,currGas:" << currGas << std::endl;
                 if (i == j)
                 {
                     return i;
                 }
             }
-
-            if (j < i) // j绕到前面去了，而且中间停止了，那就没可能走完全程
+            if (j < i)
             {
                 return -1;
             }
-            i = j;
+            else
+            {
+                i = j;
+            }
         }
         else
         {
