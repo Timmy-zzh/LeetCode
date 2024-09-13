@@ -12,6 +12,9 @@ using namespace std;
  * -- 插入区间与原有区间没有重叠部分，则新插入
  * -- 插入区间在单个区间范围内，则被合并
  * -- 插入区间与原有区间存在重叠情况（包括部分重叠），则合并重叠的部分
+ * 3、总结
+ * - 区间插入，要判断需要插入的区间在原有区间的位置，
+ * - 可拆分为插入区间的开始位置，与结束位置的判断，并考虑各种特殊情况处理
  */
 vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInterval)
 {
