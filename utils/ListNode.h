@@ -1,4 +1,4 @@
-
+#pragma once
 /**
  * 单链表数据结构Bean：
  * - 数据域：int val
@@ -14,7 +14,7 @@ public:
     {
     }
 
-    ~ListNode(){
+    ~ListNode() {
 
     };
 
