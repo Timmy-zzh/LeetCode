@@ -7,11 +7,46 @@
  * - 输入一个二叉树，和二叉树中的两个节点，求两个节点的最近公共祖先，节点也可以是自己的祖先
  * 2、解题：
  * - 递归解法，将这个问题拆分为三种情况
- * - 根节点， p，q节点分别是左右子树中
- * - 根节点为p，q中一个节点，另一个节点在左、或者右子树中
+ * - 根节点， p，q节点分别是左右子树中，则当前结点为最近公共祖先，进行返回
+ * - 根节点为p，q中一个节点，另一个节点在左、或者右子树中，这个时候返回节点
+ * - 最后在根节点看来，就返回左右子树中不为空的结点
+ * 3、一次搞定，这也行，我还以为会不成功呢
+ * 总结：
+ * - 不断拆分成不同情况，拆分成更小的情况
  */
 TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
 {
+    if (root == nullptr)
+    {
+        return nullptr;
+    }
+    if (root->val == p->val || root->val == q->val)
+    {
+        return root; // 当前结点等于其中一个目标值，返回当前值了
+    }
+
+    TreeNode *left = lowestCommonAncestor(root->left, p, q);
+    TreeNode *right = lowestCommonAncestor(root->right, p, q);
+
+    if (left != nullptr && right != nullptr)
+    {
+        // 左右子树都存在，则当前结点为最近公共祖先
+        return root;
+    }
+
+    if (left != nullptr)
+    {
+        return left;
+    }
+    if (right != nullptr)
+    {
+        return right;
+    }
+    // if (left == nullptr && right == nullptr)
+    // {
+    //     return nullptr;
+    // }
+    return nullptr; // 左右节点都没有目标值，返回null
 }
 
 /**
